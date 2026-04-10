@@ -20,10 +20,9 @@ export default function MacbookModel16(props) {
         if (!noChangeParts.includes(child.name)) {
           child.material.color = new Color(color)
         }
-        child.material.envMapIntensity = 0.3
       }
     })
-  }, [color])
+  }, [color, scene])
 
   return (
     <group {...props} dispose={null}>
