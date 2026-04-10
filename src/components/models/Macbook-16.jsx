@@ -2,7 +2,7 @@ import React, { use } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import useMacBookStore from '../../store'
 import { noChangeParts } from '../../constants/index.js'
-import { Color } from 'three'
+import { Color, SRGBColorSpace } from 'three'
 import { useEffect } from 'react'
 
 export default function MacbookModel16(props) {
@@ -13,6 +13,8 @@ export default function MacbookModel16(props) {
   )
 
   const texture = useTexture('/screen.png')
+  texture.colorSpace = SRGBColorSpace
+  texture.needsUpdate = true
 
   useEffect(() => {
     scene.traverse((child) => {
